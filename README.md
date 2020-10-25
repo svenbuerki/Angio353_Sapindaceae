@@ -29,6 +29,6 @@ The repository contains:
   - [RAxML](https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/0471250953.bi0614s51): `RAxML_Sapindaeae_25Oct2020_newick.txt`
   - These trees can be opened in R (using e.g. `ape`; see R scripts below) or [FigTree](http://tree.bio.ed.ac.uk/software/figtree/).
 3. R scripts to:
-  - Produce Table 1 summarizing Sapindaceae infra-familial classification (based on `All_genera_Sapindaceae–24oct2020_SB.csv` and `RAxML_Sapindaeae_25Oct2020_newick.txt`): `Summary_Sapindaceae_classification_Tables_1.R`
+  - Produce Table 1 summarizing Sapindaceae infra-familial classification (based on `All_genera_Sapindaceae–24oct2020_SB.csv` and `RAxML_Sapindaeae_25Oct2020_newick.txt`): `Summary_Sapindaceae_classification_Tables_1.R`. The folder `Tables` contains the edited Table in `csv` and `xlsx`.
   - Produce a genus-level Sapindaceae phylogeny (Figure 1; based on `RAxML_Sapindaeae_25Oct2020_newick.txt`): `Phylogenetic_tree_Figure_1.R`. To run this script R packages [*ape*](https://cran.r-project.org/web/packages/ape/index.html) and [*phytools*](https://cran.r-project.org/web/packages/phytools/index.html) have to be installed.
   
