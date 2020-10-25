@@ -5,9 +5,13 @@ This repository provides the data and R code associated to Buerki et al. (in pre
 # Contact information
 
 Sven Buerki, Ph.D
+
 Assistant Professor
+
 Department of Biological Sciences
+
 Boise State University
+
 Email: svenbuerki@boisestate.edu
 
 # Project structure
@@ -26,5 +30,5 @@ The repository contains:
   - These trees can be opened in R (using e.g. `ape`; see R scripts below) or [FigTree](http://tree.bio.ed.ac.uk/software/figtree/).
 3. R scripts to:
   - Produce Table 1 summarizing Sapindaceae infra-familial classification (based on `All_genera_Sapindaceae–24oct2020_SB.csv` and `RAxML_Sapindaeae_25Oct2020_newick.txt`): `Summary_Sapindaceae_classification_Tables_1.R`
-  - Produce a genus-level Sapindaceae phylogeny (Figure 1; based on ``RAxML_Sapindaeae_25Oct2020_newick.txt`): `Phylogenetic_tree_Figure_1.R`. To run this script R packages [*ape*](https://cran.r-project.org/web/packages/ape/index.html) and [*phytools*](https://cran.r-project.org/web/packages/phytools/index.html) have to be installed.
+  - Produce a genus-level Sapindaceae phylogeny (Figure 1; based on `RAxML_Sapindaeae_25Oct2020_newick.txt`): `Phylogenetic_tree_Figure_1.R`. To run this script R packages [*ape*](https://cran.r-project.org/web/packages/ape/index.html) and [*phytools*](https://cran.r-project.org/web/packages/phytools/index.html) have to be installed.
   
