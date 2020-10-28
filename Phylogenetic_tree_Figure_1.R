@@ -9,7 +9,9 @@ library(ape)
 library(phytools)
 
 #Load RAxML tr
-tr <- read.tree("Phylogenetic_trees/RAxML_Sapindaeae_25Oct2020_newick.txt")
+tr <- read.tree("Phylogenetic_trees/Sapindaceae_RAxML_100_bs_dna_species_tree_USE_THIS.nwk")
+tr <- root(tr, outgroup = "Sapindales_Sapindaceae_Xanthoceras_sorbifolium", resolve.root=T)
+tr <- drop.tip(tr, tip = c("Sapindales_Sapindaceae_Smelophyllum_capense", "Sapindales_Sapindaceae_Averrhoidium_gardnerianum"))
 
 # Produce a matrix to select only 1 tip per genus
 tips <- tr$tip.label 
@@ -40,15 +42,16 @@ trGenus <- drop.tip(tr, tipdrop[which(is.na(as.vector(tipdrop[,4])) == T),1])
 trGenus$tip.label <- tipdrop[match(trGenus$tip.label, tipdrop[,1]),2]
 
 #Plot tree
-pdf("RAxML_genus_level_radial_clades_Figure1.pdf")
+pdf("RAxML_genus_level_radial_clades_Figure_1.pdf")
 #Ladderize tree
 x <- ladderize(trGenus, FALSE)
 
 #Create label ID (phylogenetic clades)
 labels <- seq(from=1, to=21, by=1)
 #Find MRCA of clades
-nodesClades <- c(1, getMRCA(trGenus, tip=c(2,3)), 
-                 getMRCA(trGenus, tip=c(4,6)),
+nodesClades <- c(grep("Xanthoceras", trGenus$tip.label), 
+                 getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Acer"), which(trGenus$tip.label == "Dipteronia"))),
+                 getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Billia"), which(trGenus$tip.label == "Aesculus"))),
                  getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Hypelate"), which(trGenus$tip.label == "Filicium"))),
                  getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Magonia"), which(trGenus$tip.label == "Dodonaea"))),
                  getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Delavaya"), which(trGenus$tip.label == "Ungnadia"))),
