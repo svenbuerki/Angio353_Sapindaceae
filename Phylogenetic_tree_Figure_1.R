@@ -46,7 +46,7 @@ pdf("RAxML_genus_level_radial_clades_Figure_1.pdf")
 #Ladderize tree
 x <- ladderize(trGenus, FALSE)
 
-#Create label ID (phylogenetic clades)
+#Create label ID (phylogenetic clades) == TRIBES
 labels <- seq(from=1, to=21, by=1)
 #Find MRCA of clades
 nodesClades <- c(grep("Xanthoceras", trGenus$tip.label), 
@@ -71,11 +71,17 @@ nodesClades <- c(grep("Xanthoceras", trGenus$tip.label),
                  getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Tsingya"), which(trGenus$tip.label == "Beguea"))),
                  getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Alectryon"), which(trGenus$tip.label == "Tina")))
 )
+
+#Create label ID (phylogenetic clades) == Subfamilies
+labelsSubfam <- c("I", "II", "III", "IV")
+
 #Plot tree (radial)
 plot(x, type="radial", use.edge.length = F, show.node.label = F, cex=.4, label.offset = 0.05)
 #Plot nodes with clades IDs
-nodes <- labelnodes(text=labels,node=nodesClades,
-                    shape="ellipse",cex=0.5,interactive=FALSE)
+nodes <- labelnodes(text = labels, node = nodesClades,
+                    shape = "ellipse", cex = 0.5, interactive = FALSE)
+#Plot subfamilies on edges
+edgelabels(text = labelsSubfam, edge = c(1,3,13,52), bg='white', frame = "circle")
 
 dev.off()
 
