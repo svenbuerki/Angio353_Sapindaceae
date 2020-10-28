@@ -31,5 +31,5 @@ The repository contains:
 3. R scripts to:
   - Produce Table 1 summarizing Sapindaceae infra-familial classification (based on `All_genera_Sapindaceae–24oct2020_SB.csv` and `RAxML_Sapindaeae_25Oct2020_newick.txt`): `Summary_Sapindaceae_classification_Tables_1.R`. The folder `Tables` contains the edited Table in `csv` and `xlsx`.
   - Produce a genus-level Sapindaceae phylogeny based on the RAxML tree (Figure 1): `Phylogenetic_tree_Figure_1.R`. To run this script the R packages [*ape*](https://cran.r-project.org/web/packages/ape/index.html) and [*phytools*](https://cran.r-project.org/web/packages/phytools/index.html) have to be installed on your computer.
-  - Produce species-level RAxML and ASTRAL phylogenetic trees (Supplementary Material Figures 1 & 2): `Phylogenetic_trees_Supp_Material_Figures.R`.
+  - Produce species-level RAxML and ASTRAL phylogenetic trees (Appendices S1 & S2): `Phylogenetic_trees_Supp_Material_Figures.R`.
   
