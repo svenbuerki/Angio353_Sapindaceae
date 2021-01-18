@@ -25,11 +25,11 @@ The repository contains:
   - Distribution and species richness (at genus level).
   - Sampling: species sampled for this study and associated vouchers (and where those are deposited).
 2. Phylogenetic trees in newick format (in folder `Phylogenetic_trees`):
-  - [ASTRAL](https://github.com/smirarab/ASTRAL): `Sapindaceae_astral_dna_species_tree_bs_less10pc_USE_THIS.nwk`
-  - [RAxML](https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/0471250953.bi0614s51): `Sapindaceae_RAxML_100_bs_dna_species_tree_USE_THIS.nwk`
+  - [ASTRAL](https://github.com/smirarab/ASTRAL): `Sapindaceae_astral_dna_species_tree_bs_less10pc_USE_THIS_simple.nwk`
+  - [RAxML](https://currentprotocols.onlinelibrary.wiley.com/doi/abs/10.1002/0471250953.bi0614s51): `Sapindaceae_RAxML_100_bs_dna_species_tree_USE_THIS_simple.nwk`
   - These trees can be opened in R (using e.g. `ape`; see R scripts below) or [FigTree](http://tree.bio.ed.ac.uk/software/figtree/).
 3. R scripts to:
   - Produce Table 1 summarizing Sapindaceae infra-familial classification (based on `All_genera_Sapindaceae–24oct2020_SB.csv` and `RAxML_Sapindaeae_25Oct2020_newick.txt`): `Summary_Sapindaceae_classification_Tables_1.R`. The folder `Tables` contains the edited Table in `csv` and `xlsx`.
   - Produce a genus-level Sapindaceae phylogeny based on the RAxML tree (Figure 1): `Phylogenetic_tree_Figure_1.R`. To run this script the R packages [*ape*](https://cran.r-project.org/web/packages/ape/index.html) and [*phytools*](https://cran.r-project.org/web/packages/phytools/index.html) have to be installed on your computer.
-  - Produce species-level RAxML and ASTRAL phylogenetic trees (Appendices S1 & S2): `Phylogenetic_trees_Supp_Material_Figures.R`.
+  - Produce species-level RAxML and ASTRAL phylogenetic trees (Appendices S2 & S3): `Phylogenetic_trees_Supp_Material_Figures.R`.
   

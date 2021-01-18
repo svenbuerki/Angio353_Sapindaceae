@@ -2,7 +2,7 @@
 # Phylogenetic trees: Produce genus level phylogeny (= Figure 1)
 ###
 
-#Author: Sven Buerki, Boise State University 25th of October 2020
+#Author: Sven Buerki, Boise State University 18th of January 2021
 
 #Load packages
 library(ape)
@@ -10,8 +10,9 @@ library(phytools)
 
 #Load RAxML tr
 tr <- read.tree("Phylogenetic_trees/Sapindaceae_RAxML_100_bs_dna_species_tree_USE_THIS.nwk")
-tr <- root(tr, outgroup = "Sapindales_Sapindaceae_Xanthoceras_sorbifolium", resolve.root=T)
-tr <- drop.tip(tr, tip = c("Sapindales_Sapindaceae_Smelophyllum_capense", "Sapindales_Sapindaceae_Averrhoidium_gardnerianum"))
+tr$tip.label <- paste(sapply(strsplit(tr$tip.label, split="_"), "[[", 3), sapply(strsplit(tr$tip.label, split="_"), "[[", 4), sep = "_")
+tr <- root(tr, outgroup = "Xanthoceras_sorbifolium", resolve.root=T)
+tr <- drop.tip(tr, tip = c("Smelophyllum_capense", "Averrhoidium_gardnerianum", "Distichostemon_dodecarpus","Dimocarpus_longanmaliensis","Tina_coursii"))
 
 # Produce a matrix to select only 1 tip per genus
 tips <- tr$tip.label 
@@ -42,7 +43,7 @@ trGenus <- drop.tip(tr, tipdrop[which(is.na(as.vector(tipdrop[,4])) == T),1])
 trGenus$tip.label <- tipdrop[match(trGenus$tip.label, tipdrop[,1]),2]
 
 #Plot tree
-pdf("RAxML_genus_level_radial_clades_Figure_1.pdf")
+pdf("RAxML_genus_level_radial_clades_Figure_1_Jan21.pdf")
 #Ladderize tree
 x <- ladderize(trGenus, FALSE)
 
@@ -57,7 +58,7 @@ nodesClades <- c(grep("Xanthoceras", trGenus$tip.label),
                  getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Delavaya"), which(trGenus$tip.label == "Ungnadia"))),
                  getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Koelreuteria"), which(trGenus$tip.label == "Stocksia"))),
                  getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Phyllotrichum"), which(trGenus$tip.label == "Amesiodendron"))),
-                 getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Cubilia"), which(trGenus$tip.label == "Euphoria"))),
+                 getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Cubilia"), which(trGenus$tip.label == "Dimocarpus"))),
                  getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Tristira"), which(trGenus$tip.label == "Eriocoelum"))),
                  which(trGenus$tip.label == "Tristiropsis"),
                  getMRCA(trGenus, tip=c(which(trGenus$tip.label == "Haplocoelum"), which(trGenus$tip.label == "Blighiopsis"))),
@@ -81,7 +82,7 @@ plot(x, type="radial", use.edge.length = F, show.node.label = F, cex=.4, label.o
 nodes <- labelnodes(text = labels, node = nodesClades,
                     shape = "ellipse", cex = 0.5, interactive = FALSE)
 #Plot subfamilies on edges
-edgelabels(text = labelsSubfam, edge = c(1,3,13,52), bg='white', frame = "circle")
+edgelabels(text = labelsSubfam, edge = c(1,3,13,50), bg='white', frame = "circle")
 
 dev.off()
 
